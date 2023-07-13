@@ -8,10 +8,10 @@ midi_out = mido.open_output('BCF2000 1')
 
 while True:
     for C in range(0x51, 0x59):
-        midi_out.send(mido.Message('control_change', channel = 0, control = C, value = 0x7F))        
+        midi_out.send(mido.Message('control_change', channel = 0, control = C, value = 0x7F))    # fader max   
         time.sleep(0.03)
     for C in range(0x51, 0x59):
-        midi_out.send(mido.Message('control_change', channel = 0, control = C, value = 0x00))     
+        midi_out.send(mido.Message('control_change', channel = 0, control = C, value = 0x00))    # fader min  
         time.sleep(0.03)
 
 midi_out.close()
